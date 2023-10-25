@@ -1,0 +1,28 @@
+{
+  "name": "atlas-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "tsc && node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.9.0",
+    "mongoose": "^7.4.1",
+    "mongosh": "^1.10.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  }
+}
