@@ -1,7 +1,6 @@
 import express from 'express';
 import { routes } from './src/routes/routes';
-import { atlasIndexing } from './src/providers/atlas/atlas.search.indexing';
-import { AtlasIndexController } from './src/controllers/v1/create.index.controller';
+import { AtlasSearchService } from './src/providers/atlas/altas.index.options';
 export class App {
     private app: any;
     private context = '/start';
@@ -13,7 +12,7 @@ export class App {
         this.app = express();
         this.routers();
         this.listen();
-        new AtlasIndexController();
+        new AtlasSearchService();
     }
     routers() {
         this.app.use(this.context, routes.loadAllRoutes());

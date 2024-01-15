@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
-import { CustomException } from '../utils/exception.utils';
-import { ExceptionMessage, HttpStatusMessage } from '../../interfaces/enum';
+import { CustomException } from '../providers/utils/exception.utils';
+import { ExceptionMessage, HttpStatusMessage } from '../interfaces/enum';
 export class AtlasSearch {
     private Model: Model<any>;
     constructor(mongoModel: Model<any>) {

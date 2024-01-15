@@ -1,5 +1,5 @@
 import { recepiesModel } from '../../models/recepie.model';
-import { AtlasSearch } from '../../providers/atlas/atlas.search';
+import { AtlasSearch } from '../atlas.search.entity';
 import BaseEntity from '../base-mongo.entity';
 
 class RecipeEntity extends BaseEntity {

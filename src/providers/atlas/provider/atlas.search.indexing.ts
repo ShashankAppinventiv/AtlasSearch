@@ -1,13 +1,12 @@
 import { MongoClient } from 'mongodb';
+
 class AtlasSearchIndex {
-    private uri!: string;
     private client!: MongoClient;
     constructor() {
-        this.uri = this.getConnectionUri();
         this.loadClient();
     }
     private loadClient = async () => {
-        this.client = new MongoClient(this.uri);
+        this.client = new MongoClient('');//connection uri
         console.log('Atlas search indexing client connected');
     };
     public createIndex = async (dbName: string, collectionName: string, index: any) => {
@@ -20,7 +19,7 @@ class AtlasSearchIndex {
             const collection = database.collection(`${collectionName}`);
             // run the helper method
             const result = await collection.createSearchIndex(index);
-            console.log(`Index Created on ${collectionName}`, result);
+            console.log(`Index Created on ${collectionName} with name`, result);
         } catch (err) {
             throw err;
         }
@@ -77,8 +76,5 @@ class AtlasSearchIndex {
             throw err;
         }
     };
-    private getConnectionUri() {
-        return 'mongodb+srv://shashank:123@cluster0.s8fv4oh.mongodb.net/?retryWrites=true&w=majority';//write mongo URL
-    }
 }
-export const atlasIndexing = new AtlasSearchIndex();
+export const atlasSearchIndex = new AtlasSearchIndex();
