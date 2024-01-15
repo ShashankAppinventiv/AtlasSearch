@@ -13,7 +13,7 @@ export class App {
         this.app = express();
         this.routers();
         this.listen();
-        new AtlasIndexController()
+        new AtlasIndexController();
     }
     routers() {
         this.app.use(this.context, routes.loadAllRoutes());

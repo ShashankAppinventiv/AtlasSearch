@@ -12,24 +12,15 @@ class AtlasSearchIndex {
     };
     public createIndex = async (dbName: string, collectionName: string, index: any) => {
         try {
-<<<<<<< HEAD
-            if(!await this.viewSearchIndex(dbName, collectionName, index.name)){
-                console.log(`Index already exist on collection ${collectionName}`)
-=======
             if (!(await this.checkIndexExist(dbName, collectionName, index.name))) {
                 console.log(`Index already exist on collection ${collectionName}`);
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
                 return;
             }
             const database = this.client.db(`${dbName}`);
             const collection = database.collection(`${collectionName}`);
             // run the helper method
             const result = await collection.createSearchIndex(index);
-<<<<<<< HEAD
-            console.log(`Index Created on ${dbName}` ,result);
-=======
             console.log(`Index Created on ${collectionName}`, result);
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
         } catch (err) {
             throw err;
         }
@@ -61,18 +52,12 @@ class AtlasSearchIndex {
             throw err;
         }
     };
-    private checkIndexExist = async (dbName: string, collectionName: string, indexName: string) => {
+    public checkIndexExist = async (dbName: string, collectionName: string, indexName: string) => {
         try {
             const database = this.client.db(`${dbName}`);
             const collection = database.collection(`${collectionName}`);
             // run the helper method
             const result = await collection.listSearchIndexes(indexName).toArray();
-<<<<<<< HEAD
-            if(result.length<=0){
-                return true;
-            }
-            return false;
-=======
             if (result.length <= 0) {
                 return true;
             }
@@ -88,13 +73,12 @@ class AtlasSearchIndex {
             // run the helper method
             const result = await collection.listSearchIndexes(indexName).toArray();
             return result;
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
         } catch (err) {
             throw err;
         }
     };
     private getConnectionUri() {
-        return '';//write mongo URL
+        return 'mongodb+srv://shashank:123@cluster0.s8fv4oh.mongodb.net/?retryWrites=true&w=majority';//write mongo URL
     }
 }
 export const atlasIndexing = new AtlasSearchIndex();

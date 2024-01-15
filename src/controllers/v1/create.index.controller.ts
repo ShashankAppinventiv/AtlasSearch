@@ -2,7 +2,7 @@ import { atlasIndexing } from '../../providers/atlas/atlas.search.indexing';
 
 export class AtlasIndexController {
     constructor() {     
-
+      this.createIndex();
     }
     private async updateIndex() {
         try {
@@ -29,11 +29,7 @@ export class AtlasIndexController {
               }
             }
           }
-<<<<<<< HEAD
             await atlasIndexing.updateIndex('', 'list_details', 'autocomplete_list_details_item_name_check',index);
-=======
-            await atlasIndexing.updateIndex('', '', '',index);
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
             console.log('Index Update Successfully');
         } catch (err) {
             console.log(err);
@@ -58,11 +54,7 @@ export class AtlasIndexController {
                 }
               }
             };
-<<<<<<< HEAD
-            await atlasIndexing.createIndex('', 'static_contents', index);
-=======
-            await atlasIndexing.createIndex('', '', index);
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
+            await atlasIndexing.createIndex('local', 'static_contents', index);
             console.log('Index Create Successfully');
         } catch (err) {
             console.log(err);
@@ -70,11 +62,7 @@ export class AtlasIndexController {
     }
     private async deleteIndex() {
         try {
-<<<<<<< HEAD
             await atlasIndexing.deleteIndex('', 'list_details', '');
-=======
-            await atlasIndexing.deleteIndex('', '', '');
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
             console.log('Index Delete Successfully');
         } catch (err) {
             console.log(err);
@@ -82,12 +70,7 @@ export class AtlasIndexController {
     }
     private async viewIndex() {
         try {
-<<<<<<< HEAD
-            await atlasIndexing.viewSearchIndex('','contents','autocomplete_content_title');
-=======
-            await atlasIndexing.viewIndex('','','');
-            // await atlasIndexing.viewSearchIndex('DiabeticU_users','meals','');
->>>>>>> 0e9aee3ce1dda4f9dba74a42b4aaa8498b848e6c
+            await atlasIndexing.viewIndex('','contents','autocomplete_content_title');
         }catch(err) {
             console.log(err);
         }
