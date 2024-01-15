@@ -2,7 +2,6 @@ import { Request, Response, json } from 'express';
 import { recipeEntity, resturantEntity } from '../../entity';
 import { HttpStatusMessage } from '../../interfaces/enum';
 import { utils } from '../../providers/utils/utils';
-import { movieEntity } from '../../entity/v1/movie.entity';
 class QueryBuilder {
     autocomplete = async (req: Request, res: Response) => {
         try {
@@ -229,46 +228,6 @@ class QueryBuilder {
                 HttpStatusMessage.OK
             );
             res.status(finalResponse.code).send(finalResponse);
-        } catch (err) {
-            let errorResponse = utils.response.errorResponse(res, err);
-            res.status(errorResponse.code).send(errorResponse);
-        }
-    };
-    inSearch = async (req: Request, res: Response) => {
-        try {
-            let payload = {
-                index: 'default',
-                query: [2000, 2015],
-                path: 'year'
-            };
-            let response = await movieEntity.inSearch(payload);
-            let finalResponse = utils.response.successResponse(
-                res,
-                response,
-                HttpStatusMessage.OK
-            );
-            res.status(finalResponse.code).send(finalResponse);
-
-        } catch (err) {
-            let errorResponse = utils.response.errorResponse(res, err);
-            res.status(errorResponse.code).send(errorResponse);
-        }
-    };
-    rangeFilter = async (req: Request, res: Response) => {
-        try {
-            let payload = {
-                index: 'default',
-                query: [2000, 2015],
-                path: 'year'
-            };
-            let response = await movieEntity.rangeFilter(payload);
-            let finalResponse = utils.response.successResponse(
-                res,
-                response,
-                HttpStatusMessage.OK
-            );
-            res.status(finalResponse.code).send(finalResponse);
-
         } catch (err) {
             let errorResponse = utils.response.errorResponse(res, err);
             res.status(errorResponse.code).send(errorResponse);

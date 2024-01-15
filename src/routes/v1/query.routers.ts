@@ -16,8 +16,6 @@ class QueryRoutes {
         this.mainRouter.get('/diacritic-insensitive',qbController.diacriticInsensitive);
         this.mainRouter.get('/regex-search',qbController.regex);
         this.mainRouter.get('/wildcard-search',qbController.wildcard);
-        this.mainRouter.get('/in-search',qbController.inSearch);
-        this.mainRouter.get('/search-range-filter',qbController.rangeFilter);
         return this.mainRouter;
     };
 }

@@ -99,32 +99,6 @@ export default class BaseEntity {
         }
     }
 
-    paginationPipeline(page?: number, limit?: number) {
-        const paginationQuery = [];
-        if (page && limit) {
-            paginationQuery.push({ $skip: (page - 1) * limit }, { $limit: limit });
-        } else {
-            paginationQuery.push({ $skip: 0 });
-        }
-
-        const pipeline = [
-            {
-                $facet: {
-                    total: [{ $count: 'count' }],
-                    rows: paginationQuery,
-                },
-            },
-            {
-                $unwind: {
-                    path: '$total',
-                    preserveNullAndEmptyArrays: false,
-                },
-            },
-        ];
-
-        return pipeline;
-    }
-
     async updateOne(
         query: FilterQuery<AcceptAny>,
         update: UpdateQuery<AcceptAny>,
